@@ -33,25 +33,34 @@ body{
   padding:34px 22px 28px;
   border-bottom:1px solid #e9ecef;
   background:radial-gradient(circle at top right, rgba(108,92,231,.15), transparent 35%);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:10px;
 }
 
+/* ✅ LOGO */
+.logo{
+  height:55px;
+  object-fit:contain;
+}
+
+/* ✅ PREMIUM LABEL */
 .pill{
-  display:inline-block;
-  background:#f3f1ff;
-  color:#6c5ce7;
-  padding:7px 13px;
-  border-radius:999px;
   font-size:12px;
   font-weight:800;
-  margin-bottom:14px;
+  letter-spacing:.6px;
+  color:#6c5ce7;
 }
 
+/* TITLE */
 .header h1{
   font-size:26px;
   font-weight:900;
-  margin-bottom:8px;
+  margin-bottom:4px;
 }
 
+/* DESCRIPTION */
 .header p{
   font-size:14px;
   color:#636e72;
@@ -183,9 +192,20 @@ input:focus{
 <div class="container">
 
   <div class="header">
+
+    <!-- ✅ LOGO ON TOP -->
+    <img 
+      src="https://raw.githubusercontent.com/saitnsanto2025/logic/refs/heads/main/Logo-dark%20(1).png" 
+      class="logo"
+      alt="Logo"
+    >
+
+    <!-- ✅ PREMIUM TEXT BELOW -->
     <div class="pill">PREMIUM WAITLIST</div>
+
     <h1>Join the Waitlist</h1>
     <p>Get early access, priority onboarding and exclusive updates.</p>
+
   </div>
 
   <div class="content">
@@ -295,7 +315,6 @@ form.addEventListener("submit", async function(e){
       return;
     }
 
-    // SUCCESS UI SWITCH
     formCard.style.display = "none";
     successPage.style.display = "block";
     successName.innerText = "Congratulations, " + fullName + "!";
