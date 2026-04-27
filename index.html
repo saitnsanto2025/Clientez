@@ -54,7 +54,6 @@ body{
 .header h1{
   font-size:26px;
   font-weight:900;
-  margin-bottom:4px;
 }
 
 .header p{
@@ -94,8 +93,6 @@ input{
   border:none;
   border-radius:12px;
   background:#f8f9fa;
-  font-size:14px;
-  outline:none;
 }
 
 input:focus{
@@ -103,9 +100,7 @@ input:focus{
   box-shadow:0 0 0 3px rgba(108,92,231,.12);
 }
 
-.actions{
-  margin-top:18px;
-}
+.actions{margin-top:18px}
 
 .btn{
   width:100%;
@@ -119,7 +114,6 @@ input:focus{
 .btn.primary{
   background:#6c5ce7;
   color:#fff;
-  box-shadow:0 12px 22px rgba(108,92,231,.22);
 }
 
 .alert{
@@ -127,13 +121,8 @@ input:focus{
   margin-top:14px;
   padding:13px;
   border-radius:14px;
-  font-weight:800;
   font-size:13px;
-}
-
-.alert.err{
   background:#fff1f2;
-  border:1px solid #fecdd3;
   color:#9f1239;
 }
 
@@ -167,7 +156,6 @@ input:focus{
 
 .benefits h3{
   font-size:16px;
-  font-weight:900;
   margin-bottom:10px;
 }
 
@@ -182,14 +170,13 @@ input:focus{
 }
 </style>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17978486464"></script>
+<!-- ✅ Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MXJSDJKE0S"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
-  gtag('config', 'AW-17978486464');
+  gtag('config', 'G-MXJSDJKE0S');
 </script>
 
 </head>
@@ -199,7 +186,6 @@ input:focus{
 <div class="container">
 
   <div class="header">
-
     <img 
       src="https://raw.githubusercontent.com/saitnsanto2025/logic/refs/heads/main/Logo-dark%20(1).png" 
       class="logo"
@@ -210,7 +196,6 @@ input:focus{
 
     <h1>Join the Waitlist</h1>
     <p>Get early access, priority onboarding and exclusive updates.</p>
-
   </div>
 
   <div class="content">
@@ -243,7 +228,7 @@ input:focus{
           </button>
         </div>
 
-        <div class="alert err" id="errorBox"></div>
+        <div class="alert" id="errorBox"></div>
 
       </form>
     </div>
@@ -321,6 +306,12 @@ form.addEventListener("submit", async function(e){
     formCard.style.display = "none";
     successPage.style.display = "block";
     successName.innerText = "Congratulations, " + fullName + "!";
+
+    // ✅ Conversion Tracking
+    gtag('event', 'waitlist_signup', {
+      event_category: 'engagement',
+      event_label: 'Premium Waitlist'
+    });
 
   }catch(err){
     showError("Network error. Check connection.");
